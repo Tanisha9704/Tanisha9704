@@ -1,0 +1,26 @@
+{
+  "name": "uno-onchain",
+  "private": true,
+  "version": "1.0.0",
+  "description": "UNO ONCHAIN - multichain onchain UNO with 3D environment, AI, and Chrome extension",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "contracts/evm"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "dev:web": "npm run dev --workspace=@uno/web",
+    "dev:server": "npm run dev --workspace=@uno/server",
+    "dev:extension": "npm run dev --workspace=@uno/extension"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.5.0",
+    "@types/node": "^20.14.0"
+  },
+  "packageManager": "npm@10.0.0"
+}

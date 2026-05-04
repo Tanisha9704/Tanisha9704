@@ -1,0 +1,28 @@
+{
+  "name": "@uno/contracts-evm",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:base": "hardhat run scripts/deploy.ts --network base",
+    "deploy:arbitrum": "hardhat run scripts/deploy.ts --network arbitrum",
+    "deploy:optimism": "hardhat run scripts/deploy.ts --network optimism",
+    "deploy:polygon": "hardhat run scripts/deploy.ts --network polygon",
+    "deploy:bnb": "hardhat run scripts/deploy.ts --network bnb",
+    "deploy:avalanche": "hardhat run scripts/deploy.ts --network avalanche",
+    "lint": "echo 'no lint configured'"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.0.0",
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^10.0.0",
+    "chai": "^4.4.0",
+    "dotenv": "^16.4.0",
+    "ethers": "^6.13.0",
+    "hardhat": "^2.22.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.5.0"
+  }
+}
