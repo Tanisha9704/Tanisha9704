@@ -20,7 +20,7 @@ export function App() {
   }, []);
 
   return (
-    <div className="relative h-full w-full overflow-hidden">
+    <div className="relative h-screen w-screen overflow-hidden">
       <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-6 py-4 pointer-events-none">
         <div className="font-display text-2xl font-extrabold tracking-tight pointer-events-auto">
           UNO <span className="text-accent">ONCHAIN</span>

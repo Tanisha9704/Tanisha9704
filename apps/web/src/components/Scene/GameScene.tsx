@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import { Environment as DreiEnv, OrbitControls } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { Suspense } from 'react';
 import { GameTable } from './GameTable';
 import { CardDeck } from './CardDeck';
@@ -69,12 +69,12 @@ export function GameScene({ gameId, mode }: GameSceneProps) {
     <div className="absolute inset-0">
       <Canvas
         shadows
-        camera={{ position: [0, 6, 7], fov: 45 }}
+        camera={{ position: [0, 8, 8.5], fov: 45 }}
         gl={{ antialias: true, powerPreference: 'high-performance' }}
       >
+        <color attach="background" args={['#050505']} />
         <Suspense fallback={null}>
           <TableEnvironment activeColor={game.currentColor} />
-          <DreiEnv preset="night" />
           <GameTable />
           <CardDeck count={game.drawPileCount} onClick={drawCard} />
           {game.topDiscard && <DiscardPile topCard={game.topDiscard} color={game.currentColor} />}

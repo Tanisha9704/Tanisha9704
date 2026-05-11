@@ -118,6 +118,8 @@ describe('playCard', () => {
 
   it('Skip card: skips the next player', () => {
     const g = basicGame(3);
+    g.currentPlayerIndex = 0;
+    g.direction = 1;
     const cur = g.players[g.currentPlayerIndex]!;
     // Force a matching skip card on top.
     g.discardPile = [{ id: 'top', kind: 'number', color: 'red', value: 5 }];
@@ -132,6 +134,8 @@ describe('playCard', () => {
 
   it('Reverse with 2 players acts as Skip — same player plays again', () => {
     const g = basicGame(2);
+    g.currentPlayerIndex = 0;
+    g.direction = 1;
     const cur = g.players[g.currentPlayerIndex]!;
     g.discardPile = [{ id: 'top', kind: 'number', color: 'red', value: 5 }];
     g.currentColor = 'red';
@@ -144,6 +148,8 @@ describe('playCard', () => {
 
   it('Reverse with 3 players reverses direction', () => {
     const g = basicGame(3);
+    g.currentPlayerIndex = 0;
+    g.direction = 1;
     const cur = g.players[g.currentPlayerIndex]!;
     g.discardPile = [{ id: 'top', kind: 'number', color: 'red', value: 5 }];
     g.currentColor = 'red';
@@ -155,6 +161,8 @@ describe('playCard', () => {
 
   it('Draw Two: target draws 2 and is skipped', () => {
     const g = basicGame(3);
+    g.currentPlayerIndex = 0;
+    g.direction = 1;
     const cur = g.players[g.currentPlayerIndex]!;
     const targetIdx = (g.currentPlayerIndex + 1) % 3;
     const target = g.players[targetIdx]!;
@@ -171,6 +179,8 @@ describe('playCard', () => {
 
   it('Wild Draw Four registers a pending challenge and does not advance turn yet', () => {
     const g = basicGame(3);
+    g.currentPlayerIndex = 0;
+    g.direction = 1;
     const cur = g.players[g.currentPlayerIndex]!;
     g.discardPile = [{ id: 'top', kind: 'number', color: 'red', value: 5 }];
     g.currentColor = 'red';

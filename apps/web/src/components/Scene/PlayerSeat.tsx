@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Text } from '@react-three/drei';
+import { Html } from '@react-three/drei';
 import type { PlayerPublic } from '@uno/shared';
 import { CardMesh } from './CardMesh';
 
@@ -45,24 +45,19 @@ export function PlayerSeat({ player, seatIndex, totalSeats, isCurrentTurn }: Pro
         <meshBasicMaterial color={isCurrentTurn ? '#00FF88' : '#444'} />
       </mesh>
 
-      <Text
-        position={[0, 1.7, 0]}
-        fontSize={0.18}
-        color={isCurrentTurn ? '#00FF88' : '#fff'}
-        anchorX="center"
-        anchorY="middle"
-      >
-        {player.username ?? shorten(player.address)}
-      </Text>
-      <Text
-        position={[0, 1.4, 0]}
-        fontSize={0.13}
-        color="#aaa"
-        anchorX="center"
-        anchorY="middle"
-      >
-        {player.cardCount} cards
-      </Text>
+      <Html position={[0, 1.7, 0]} center distanceFactor={6} zIndexRange={[10, 0]}>
+        <div className="select-none pointer-events-none text-center" style={{ minWidth: 140 }}>
+          <div
+            className="font-mono text-sm font-bold whitespace-nowrap"
+            style={{ color: isCurrentTurn ? '#00FF88' : '#fff', textShadow: '0 2px 6px rgba(0,0,0,0.8)' }}
+          >
+            {player.username ?? shorten(player.address)}
+          </div>
+          <div className="text-xs" style={{ color: '#aaa', textShadow: '0 2px 6px rgba(0,0,0,0.8)' }}>
+            {player.cardCount} cards
+          </div>
+        </div>
+      </Html>
     </group>
   );
 }

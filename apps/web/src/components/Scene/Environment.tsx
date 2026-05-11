@@ -32,18 +32,18 @@ export function TableEnvironment({ activeColor }: Props) {
 
   return (
     <>
-      <ambientLight intensity={0.15} />
+      <ambientLight intensity={0.45} />
       <spotLight
         position={[0, 10, 0]}
-        angle={0.7}
+        angle={0.9}
         penumbra={0.5}
-        intensity={1.5}
+        intensity={120}
         color="#FFF5E1"
         castShadow
         shadow-mapSize={[1024, 1024]}
       />
-      <pointLight ref={rimRef} position={[0, 1.5, 0]} intensity={3} distance={6} decay={1.5} />
-      <fog attach="fog" args={[0x0a0a0a, 8, 20]} />
+      <pointLight ref={rimRef} position={[0, 1.5, 0]} intensity={20} distance={8} decay={1.5} />
+      <fog attach="fog" args={[0x050505, 12, 28]} />
     </>
   );
 }
