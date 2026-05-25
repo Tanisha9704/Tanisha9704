@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tweet Listener</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <h1>Tweet Listener</h1>
+    <p class="subtitle">Paste a tweet link, press play, get back to work.</p>
+  </header>
+
+  <section class="input-row">
+    <input
+      id="tweet-url"
+      type="url"
+      placeholder="https://x.com/user/status/123..."
+      autocomplete="off"
+      spellcheck="false"
+    />
+    <button id="use-current-tab" type="button" title="Use the URL of the active tab">Use tab</button>
+  </section>
+
+  <button id="fetch-btn" class="primary" type="button">Load tweet</button>
+
+  <section id="status" class="status" aria-live="polite"></section>
+
+  <section id="tweet-preview" class="preview hidden">
+    <div class="author">
+      <strong id="author-name"></strong>
+      <span id="author-handle"></span>
+    </div>
+    <p id="tweet-text"></p>
+  </section>
+
+  <section class="controls hidden" id="controls">
+    <div class="control-row">
+      <button id="play-btn" type="button">▶ Play</button>
+      <button id="pause-btn" type="button" disabled>⏸ Pause</button>
+      <button id="stop-btn" type="button" disabled>⏹ Stop</button>
+    </div>
+
+    <label class="slider">
+      <span>Speed <output id="rate-out">1.0×</output></span>
+      <input id="rate" type="range" min="0.5" max="2" step="0.1" value="1" />
+    </label>
+
+    <label class="slider">
+      <span>Pitch <output id="pitch-out">1.0</output></span>
+      <input id="pitch" type="range" min="0.5" max="2" step="0.1" value="1" />
+    </label>
+
+    <label class="select">
+      <span>Voice</span>
+      <select id="voice"></select>
+    </label>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
